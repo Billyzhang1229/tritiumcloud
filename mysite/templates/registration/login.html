@@ -1,0 +1,60 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block extra_head %}
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="{% static '/mysite/css/signin.css' %}">
+<script type="javascript" src="{% static '/mysite/js/login.js' %}"></script>
+{% endblock %}
+
+{% block mainbody %}
+<body class="text-center">
+
+{% if form.errors %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Please try again.</strong>Your username and password didn't match.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+
+
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Your account doesn't have access to this page.</strong>
+        To proceed, please login with an account that has access.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% else %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Please login to see this page.</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+{% endif %}
+
+    <form class="form-signin" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+      <img class="mb-4" src="{% static 'mysite/icons/cloud.png' %}" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="{{ form.username.id_for_label }}" class="sr-only">Username</label>
+        <input class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" placeholder="{{form.username.name}}" type="text" required autofocus>
+        <label for="{{ form.password.id_for_label }}" class="sr-only">Password</label>
+        <input class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" placeholder="{{form.password.name}}" type="password" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Sign In</button>
+      <input type="hidden" name="next" value="{{ next }}" />
+
+      <p class="mt-5 mb-3 text-muted">2020 BZ</p>
+    </form>
+</body>
+{% endblock %}
