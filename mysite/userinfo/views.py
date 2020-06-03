@@ -11,7 +11,7 @@ class HomeView(generic.TemplateView):
     template_name = 'index.html'
 
     def get_random_welcome(self):
-        welcome_words = ['こんにちは', 'Welcome', 'Bonjour', 'สวัสดี', 'Хорошо', '欢迎']
+        welcome_words = ['Welcome', 'Bonjour', '欢迎']
         return random.choice(welcome_words)
 
     def get(self, request):

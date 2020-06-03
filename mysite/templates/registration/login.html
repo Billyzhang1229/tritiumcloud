@@ -14,7 +14,7 @@
 
 {% if form.errors %}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Please try again.</strong>Your username and password didn't match.
+  <strong>请重试</strong>您的用户名和密码不符
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -26,15 +26,15 @@
 {% if next %}
     {% if user.is_authenticated %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Your account doesn't have access to this page.</strong>
-        To proceed, please login with an account that has access.
+        <strong>抱歉，您的账户没有权限访问该界面</strong>
+        如想继续，请使用有权限的账户来登录该界面
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     {% else %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Please login to see this page.</strong>
+        <strong>请先登录再访问网站</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -45,13 +45,13 @@
     <form class="form-signin" method="post" action="{% url 'login' %}">
         {% csrf_token %}
       <img class="mb-4" src="{% static 'mysite/icons/cloud.png' %}" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="{{ form.username.id_for_label }}" class="sr-only">Username</label>
-        <input class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" placeholder="{{form.username.name}}" type="text" required autofocus>
-        <label for="{{ form.password.id_for_label }}" class="sr-only">Password</label>
-        <input class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" placeholder="{{form.password.name}}" type="password" required>
+      <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
+        <label for="{{ form.username.id_for_label }}" class="sr-only">用户名</label>
+        <input class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" placeholder="用户名" type="text" required autofocus>
+        <label for="{{ form.password.id_for_label }}" class="sr-only">密码</label>
+        <input class="form-control" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" placeholder="密码" type="password" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Sign In</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">登录</button>
       <input type="hidden" name="next" value="{{ next }}" />
 
       <p class="mt-5 mb-3 text-muted">2020 BZ</p>
