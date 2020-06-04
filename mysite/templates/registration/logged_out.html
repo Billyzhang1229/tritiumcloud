@@ -3,11 +3,15 @@
 
 {% block title %}Logged Out{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static '/mysite/css/logout.css' %}">
+{% endblock %}
+
 {% block mainbody %}
 <body>
-<div class="container">
+<div class="text-center">
     <h1 class="display-2">您已登出</h1>
-    <a type="button" class="btn btn-outline-dark" href="/">重新登录</a>
+    <a type="button" class="btn btn-lg btn-outline-light" href="/">重新登录</a>
 </div>
 </body>
 {% endblock %}

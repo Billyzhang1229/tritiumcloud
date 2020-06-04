@@ -8,6 +8,8 @@ body{
 
 .card{
     background-color: #393a3d;
+    margin-bottom: 20px;
+    margin-right: 10px;
 }
 
 .card-title{
@@ -20,4 +22,16 @@ body{
 .menuicon{
     cursor:pointer;
     margin-bottom: 10px;
+}
+
+.img-container{
+    height: 200px;
+    overflow: hidden;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-top{
+    height: auto;
 }

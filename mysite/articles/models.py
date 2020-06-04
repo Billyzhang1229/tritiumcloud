@@ -4,7 +4,7 @@ from django.conf import settings
 # Create your models here.
 class PostsModel(models.Model):
     title = models.CharField(max_length=50)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     uploadtime = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to="uploads/%Y/%m/%d/")
     content = models.TextField()

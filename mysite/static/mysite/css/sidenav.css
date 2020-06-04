@@ -95,7 +95,7 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #f6786a;
     background: #fff;
 }
 
@@ -137,7 +137,7 @@ ul.CTAs a {
 
 a.logout, a.logout:hover {
     background: #262626 !important;
-    color: #fff !important;
+    color: #b3b3b3 !important;
 }
 
 

@@ -3,9 +3,7 @@ from django.views import generic
 from datetime import datetime
 from . import models
 import random
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
-
+from articles.models import PostsModel
 
 # Create your views here.
 class HomeView(generic.TemplateView):
@@ -23,13 +21,13 @@ class HomeView(generic.TemplateView):
         welcome_word = self.get_random_welcome()
         return render(request, self.template_name, locals())
 
-class UserProfileView(generic.DetailView):
+class UserProfileView(generic.TemplateView):
     template_name = 'user_profile.html'
-    queryset = models.UserInfoModel.objects.all()
 
     def get(self, request, *args, **kwargs):
         userprofile = get_object_or_404(models.UserInfoModel, slug=kwargs['slug'])
-        context = {'userprofile': userprofile}
+        userposts = PostsModel.objects.filter(user = userprofile.user)
+        context = {'userprofile': userprofile, 'userposts':userposts}
         return render(request, self.template_name, context)
 
 

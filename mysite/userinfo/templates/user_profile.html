@@ -6,15 +6,15 @@
 {% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{% static '/userinfo/css/user_profile.css' %}"></link>
+<link rel="stylesheet" href="{% static '/userinfo/css/user_profile.css' %}"/>
 {% endblock %}
 
 {% block mainbody %}
     <div class="wrapper">
         <!-- Sidebar Holder -->
-        <nav id="sidebar" class="active">
+        <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>TRITIUM</h3>
+                <h3>TRITIUM <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/></h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -41,7 +41,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn active">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -58,18 +58,37 @@
             </nav>
 
 <!--            main content-->
-<div class="container">
-  <div class="card">
-  <div class="card-body">
-    <h1 class="card-title display-4">{{userprofile.user.first_name}} {{userprofile.user.last_name}} 的主页</h1>
-      <img src="{{userprofile.avatar.url}}" height="50" width="50"/>
-    <p class="card-text lead">{{userprofile.bio}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="container">
+      <div class="card">
+      <div class="card-body">
+        <h1 class="card-title display-4">{{userprofile.user.first_name}} {{userprofile.user.last_name}} 的主页</h1>
+        <p class="card-text lead">{{userprofile.bio}}</p>
+      </div>
+      </div>
+  <div class="row row-cols-1 row-cols-md-3">
+      {% for userpost in userposts %}
+      <div class="col mb-4">
+  <div class="card h-100">
+      <div class="img-container">
+          <img src="{{ userpost.picture.url }}" class="card-img-top">
+      </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ userpost.title }}</h5>
+      <p class="card-text">{{ userpost.content }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Posted at {{ userpost.uploadtime }}</small>
+    </div>
   </div>
+      </div>
+      {% endfor %}
   </div>
-</div>
-<!--</div>-->
-        </div>
+
+
+
+
+    </div>
+    </div>
     </div>
 
 
