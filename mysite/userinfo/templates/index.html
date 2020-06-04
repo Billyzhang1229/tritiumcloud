@@ -23,7 +23,7 @@ HOME
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="/">{{ username }}</a>
             <a class="nav-link" href="#">发现</a>
-            <a class="nav-link" href="#">我的主页</a>
+            <a class="nav-link" href="{% url 'userinfo:userprofileview' username %}">我的主页</a>
             <a class="nav-link" href="{% url 'logout' %}">退出</a>
           </nav>
         </div>

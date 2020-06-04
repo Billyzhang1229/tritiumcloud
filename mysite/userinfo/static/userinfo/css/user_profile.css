@@ -1,0 +1,23 @@
+body{
+    background-color: #1e2022;
+}
+
+#main{
+    color: white;
+}
+
+.card{
+    background-color: #393a3d;
+}
+
+.card-title{
+    font-family: "Roboto";
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: rgb(192,193,195);
+}
+
+.menuicon{
+    cursor:pointer;
+    margin-bottom: 10px;
+}

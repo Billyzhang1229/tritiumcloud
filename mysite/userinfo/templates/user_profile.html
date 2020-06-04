@@ -6,20 +6,73 @@
 {% endblock %}
 
 {% block extra_head %}
+<link rel="stylesheet" href="{% static '/userinfo/css/user_profile.css' %}"></link>
 {% endblock %}
 
 {% block mainbody %}
-<!-- Use any element to open the sidenav -->
-<span onclick="openNav()">open</span>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <h3>TRITIUM</h3>
+            </div>
 
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-  <div class="container">
-       <h1>User Profile</h1>
-          <p>{{userprofile.user.username}}</p>
-          <p>{{userprofile.bio}}</p>
-          <img src="{{userprofile.avatar.url}}"></img>
-      </div>
+            <ul class="list-unstyled components">
+                <p>Welcome, {{userprofile.user.first_name}} {{userprofile.user.last_name}}</p>
+                <li>
+                    <a href="/">{{userprofile.user.username}}</a>
+                <li>
+                    <a href="#">发现</a>
+                </li>
+                <li class="active">
+                    <a href="{% url 'userinfo:userprofileview' userprofile.user.username %}">我的主页</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="{% url 'logout' %}" class="logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn active">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+<!--            main content-->
+<div class="container">
+  <div class="card">
+  <div class="card-body">
+    <h1 class="card-title display-4">{{userprofile.user.first_name}} {{userprofile.user.last_name}} 的主页</h1>
+      <img src="{{userprofile.avatar.url}}" height="50" width="50"/>
+    <p class="card-text lead">{{userprofile.bio}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
   </div>
 </div>
+<!--</div>-->
+        </div>
+    </div>
+
+
+
+
 {% endblock %}
