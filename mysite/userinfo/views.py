@@ -28,7 +28,7 @@ class UserProfileView(generic.DetailView):
     queryset = models.UserInfoModel.objects.all()
 
     def get(self, request, *args, **kwargs):
-        userprofile = get_object_or_404(models.UserInfoModel, pk=kwargs['pk'])
+        userprofile = get_object_or_404(models.UserInfoModel, slug=kwargs['slug'])
         context = {'userprofile': userprofile}
         return render(request, self.template_name, context)
 
