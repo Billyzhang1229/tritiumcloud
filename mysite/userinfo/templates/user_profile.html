@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block mainbody %}
+    <body>
+        <div class="container">
+            <h1>User Profile</h1>
+            <p>{{userprofile.user.username}}</p>
+            <p>{{userprofile.bio}}</p>
+            <img src="{{userprofile.avatar.url}}"></img>
+        </div>
+    </body>
+{% endblock %}

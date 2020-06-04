@@ -5,4 +5,4 @@ from django.conf import settings
 class UserInfoModel(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     bio = models.CharField(max_length=255)
-    avatar = models.ImageField(upload_to="uploads/%Y/%m/%d/")
+    avatar = models.ImageField(upload_to="uploads/image/%Y/%m/%d")

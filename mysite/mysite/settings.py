@@ -134,5 +134,4 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/'
 
-EXEMPT_URLS = [
-]
+MEDIA_URL = '/uploads/'

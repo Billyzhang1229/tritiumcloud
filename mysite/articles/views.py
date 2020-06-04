@@ -4,5 +4,6 @@ from . import models
 
 # Create your views here.
 class PostsListView(ListView):
-    model = models.Posts
+    model = models.PostsModel
     paginate_by = 10
+    queryset = model.objects.all()
