@@ -1,6 +1,7 @@
 from django import forms
+from . import models
 
-class PostForm(forms.Form):
-    title = forms.CharField(label='title', max_length=50)
-    picture = forms.ImageField(label='picture', upload_to="uploads/%Y/%m/%d/")
-    content = forms.TextField(label='content')
+class PostForm(forms.ModelForm):
+    class Meta:
+        model= models.PostsModel
+        fields = ['title', 'picture', 'content',]

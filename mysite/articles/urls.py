@@ -5,4 +5,5 @@ app_name = 'articles'
 urlpatterns = [
     path('discover/', views.AllUserPostsView.as_view(), name="alluserpostsview"),
     path('<int:pk>/', views.PostsDetailView.as_view(), name="postsdetailview"),
+    path('create/', views.create_post_view, name='createpostview'),
 ]

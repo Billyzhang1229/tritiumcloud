@@ -1,0 +1,9 @@
+.btn-outline-dark:hover{
+    background-color: #ff9696;
+    border-color: #ff9696;
+    color: #fff;
+}
+
+.custom-file-input{
+    cursor: pointer;
+}

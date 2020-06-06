@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from django.views import generic
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.views import generic, View
 from . import models
+from . import forms
+from datetime import datetime
 
 # Create your views here.
 class AllUserPostsView(generic.TemplateView):
@@ -13,7 +15,6 @@ class AllUserPostsView(generic.TemplateView):
         return render(request, self.template_name, context)
 
 class PostsDetailView(generic.TemplateView):
-    form_class= 
     template_name = 'postsdetail.html'
 
     def get(self, request, *args, **kwargs):
@@ -22,8 +23,22 @@ class PostsDetailView(generic.TemplateView):
         context = {'userpost':userpost, 'current_user':current_user}
         return render(request, self.template_name, context)
 
-class CreatePostView(generic.TemplateView):
+def create_post_view(request):
     template_name = 'createpost.html'
-
-    def post(self, request, *args, **kwargs):
-        form = self.
+    post_form = forms.PostForm()
+    success_url = "/"
+    if request.method == "POST":
+        post_form = forms.PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            instance = post_form.save(commit=False)
+            instance.user = request.user
+            post_form.save()
+            return HttpResponseRedirect(success_url)
+        else:
+            post_form = forms.PostForm()
+            print(post_form.errors)
+    context = {
+        'post_form':post_form,
+        'current_user':request.user,
+    }
+    return render(request, template_name, context)
