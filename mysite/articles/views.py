@@ -13,6 +13,7 @@ class AllUserPostsView(generic.TemplateView):
         return render(request, self.template_name, context)
 
 class PostsDetailView(generic.TemplateView):
+    form_class= 
     template_name = 'postsdetail.html'
 
     def get(self, request, *args, **kwargs):
@@ -20,3 +21,9 @@ class PostsDetailView(generic.TemplateView):
         userpost = get_object_or_404(models.PostsModel, pk=kwargs['pk'])
         context = {'userpost':userpost, 'current_user':current_user}
         return render(request, self.template_name, context)
+
+class CreatePostView(generic.TemplateView):
+    template_name = 'createpost.html'
+
+    def post(self, request, *args, **kwargs):
+        form = self.

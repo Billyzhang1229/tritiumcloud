@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block title %}
-发现
+{{userpost.title}}
 {% endblock %}
 
 {% block extra_head %}
+<link rel="stylesheet" href="{% static '/articles/css/articledetail.css' %}"/>
 {% endblock %}
 
 {% block mainbody %}
@@ -13,8 +14,7 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/>
-            </h3>
+            <h3><a href="/">TRITIUM</a></h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -40,49 +40,41 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
-
                 <button type="button" id="sidebarCollapse" class="navbar-btn">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                    </ul>
-                </div>
+                <a class="createpost" href="#">
+                    <svg class="bi bi-plus-square" width="30px" height="30px" viewBox="0 0 16 16" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd"
+                              d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+                        <path fill-rule="evenodd"
+                              d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    </svg>
+                </a>
             </div>
         </nav>
 
         <!-- main content-->
         <div class="container">
-
-
-            <h1 class="article-title">{{ userpost.title }}</h1>
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <p class="lead">{{userpost.user.username}}</p>
+            <div class="card user-info">
+                <div class="img-container">
+                <img src="{{ userpost.picture.url }}" class="card-img-top">
+            </div>
+                <div class="card-header">
+                    <h1 class="card-title display-5">{{userpost.title}}</h1>
+                    <p class="card-text lead">{{userpost.uploadtime}}</p>
                 </div>
-                <div class="col">
-                    <p class="lead">{{userpost.uploadtime}}</p>
+                <div class="card-body">
+                    <p class="card-text">{{userpost.content}}</p>
+                    <small class="text-muted">By {{userpost.user.username}}</small>
                 </div>
             </div>
-            <hr>
-            <img src="{{userpost.picture.url}}" class="img-fluid">
-            <hr>
-            <p>{{userpost.content}}</p>
-
-
         </div>
-
-
 
 
     </div>

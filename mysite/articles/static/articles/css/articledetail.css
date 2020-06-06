@@ -10,12 +10,7 @@
     -5px -5px 15px #ffffff;
     border-color: rgba(192, 193, 195, 0);
     border-width: 0;
-    transition: transform .5s;
     background-color: #fbfcfe;
-}
-
-.card:hover {
-    transform: scale(1.1);
 }
 
 .card-title {
@@ -33,7 +28,6 @@
 .img-container {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    height: 200px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -48,37 +42,16 @@
     width: auto;
 }
 
-
-.post-card {
-    height: 500px !important;
-    width: auto;
-}
-
-.post-text {
-    height: 300px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis
-}
-
-.card-footer {
-    max-height: 100px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis
-}
-
-#userlink{
-    color: #ff8888;
-    font-size: larger;
-    text-transform: uppercase;
-    text-decoration: underline;
-}
-
 .createpost{
     background-color: #f8f9fa;
 }
 
 .createpost svg:hover{
     fill: #ff9696;
+}
+
+@media only screen and (max-width:500px ) {
+    .img-container{
+        height: 200px;
+    }
 }

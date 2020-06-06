@@ -14,8 +14,7 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/>
-            </h3>
+            <h3><a href="/">TRITIUM</a></h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -41,23 +40,22 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
-
                 <button type="button" id="sidebarCollapse" class="navbar-btn">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                    </ul>
-                </div>
+                <a class="createpost" href="#">
+                    <svg class="bi bi-plus-square" width="30px" height="30px" viewBox="0 0 16 16" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd"
+                              d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+                        <path fill-rule="evenodd"
+                              d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    </svg>
+                </a>
             </div>
         </nav>
 
@@ -65,7 +63,7 @@
         <div class="container">
             <div class="card text-center" id="title-card">
                 <div class="card-body">
-                    <h1 class="card-title display-4">发 现</h1>
+                    <h1 class="card-title display-4">ALL POSTS</h1>
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -83,7 +81,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-4">
-                                    <small class="text-muted">By <a id="userlink" href="{% url 'userinfo:userprofileview' userpost.slug %}">{{userpost.user.username }}</a></small>
+                                    <small class="text-muted">By <a id="userlink" href="{% url 'userinfo:userprofileview' userpost.slug %}">{{userpost.user.username}}</a></small>
                                 </div>
                                 <div class="col-8">
                                     <small class="text-muted">Posted at {{ userpost.uploadtime }}</small>
