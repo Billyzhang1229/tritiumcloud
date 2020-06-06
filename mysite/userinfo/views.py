@@ -27,7 +27,8 @@ class UserProfileView(generic.TemplateView):
     def get(self, request, *args, **kwargs):
         userprofile = get_object_or_404(models.UserInfoModel, slug=kwargs['slug'])
         userposts = PostsModel.objects.filter(user = userprofile.user)
-        context = {'userprofile': userprofile, 'userposts':userposts}
+        current_user = request.user
+        context = {'userprofile': userprofile, 'userposts':userposts, 'current_user':current_user}
         return render(request, self.template_name, context)
 
 

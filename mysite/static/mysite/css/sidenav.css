@@ -24,15 +24,13 @@ a, a:hover, a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #393b3e;
+    background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.bg-dark{
-  background-color: rgb(57, 58, 61) !important;
+    border-radius: 5px;
+    box-shadow:  15px 15px 15px #d9d9d9,
+                -5px -5px 15px #ffffff;
 }
 
 .navbar-btn {
@@ -63,10 +61,12 @@ a, a:hover, a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #2d2e31;
-    color: #fff;
+    background: white;
+    color: #303133;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
+    box-shadow:  15px 15px 15px #d9d9d9,
+             -5px -5px 15px #ffffff;
 }
 
 #sidebar.active {
@@ -76,16 +76,18 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #FF6F61;
+    background: #ff9696;
+    color: white;
+    font-weight: 700;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #eeeeee;
 }
 
 #sidebar ul p {
-    color: #fff;
+    color: #303133;
     padding: 10px;
 }
 
@@ -95,15 +97,14 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #f6786a;
-    background: #fff;
+    color: #fff;
+    background: #ff9696;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #505254;
+    color: #303133;
+    background: #eeeeee;
 }
-
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -120,7 +121,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #eeeeee;
 }
 
 ul.CTAs {
@@ -135,9 +136,14 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.logout, a.logout:hover {
-    background: #262626 !important;
-    color: #b3b3b3 !important;
+a.logout {
+    background: #eeeeee;
+    color: #303133;
+}
+
+a.logout:hover {
+    background: #ff9696 !important;
+    color: #fff !important;
 }
 
 
@@ -155,8 +161,9 @@ a.logout, a.logout:hover {
 #sidebarCollapse {
     width: 40px;
     height: 40px;
+    background: #f5f5f5;
     cursor: pointer;
-    background-color: #353a40;
+    background-color: #f8f9fa;
 }
 
 #sidebarCollapse span {
@@ -164,7 +171,7 @@ a.logout, a.logout:hover {
     height: 2px;
     margin: 0 auto;
     display: block;
-    background: white;
+    background: #555;
     transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
     transition-delay: 0.2s;
 }

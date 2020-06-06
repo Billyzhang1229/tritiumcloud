@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{% static '/userinfo/css/user_profile.css' %}"/>
+<link rel="stylesheet" href="{% static '/userinfo/css/mysidebar.css' %}"/>
 {% endblock %}
 
 {% block mainbody %}
@@ -14,18 +14,18 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>TRITIUM <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/></h3>
+                <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/></h3>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Welcome, {{userprofile.user.first_name}} {{userprofile.user.last_name}}</p>
+                <p>Welcome, {{current_user.first_name}} {{current_user.last_name}}</p>
                 <li>
-                    <a href="/">{{userprofile.user.username}}</a>
+                    <a href="/">{{current_user.username}}</a>
                 <li>
-                    <a href="#">发现</a>
+                    <a href="/discover/">发现</a>
                 </li>
                 <li class="active">
-                    <a href="{% url 'userinfo:userprofileview' userprofile.user.username %}">我的主页</a>
+                    <a href="{% url 'userinfo:userprofileview' current_user.username %}">我的主页</a>
                 </li>
             </ul>
 
@@ -38,7 +38,7 @@
         <!-- Page Content Holder -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="navbar-btn">
@@ -46,7 +46,7 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
 
@@ -59,21 +59,21 @@
 
 <!--            main content-->
     <div class="container">
-      <div class="card">
+      <div class="card user-info">
       <div class="card-body">
         <h1 class="card-title display-4">{{userprofile.user.first_name}} {{userprofile.user.last_name}} 的主页</h1>
         <p class="card-text lead">{{userprofile.bio}}</p>
       </div>
       </div>
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-2">
       {% for userpost in userposts %}
       <div class="col mb-4">
-  <div class="card h-100">
+  <div class="card post-card h-100">
       <div class="img-container">
           <img src="{{ userpost.picture.url }}" class="card-img-top">
       </div>
-    <div class="card-body">
-      <h5 class="card-title">{{ userpost.title }}</h5>
+    <div class="card-body post-text">
+      <h5 class="card-title"><a href="{% url 'articles:postsdetailview' userpost.id %}">{{ userpost.title }}</a></h5>
       <p class="card-text">{{ userpost.content }}</p>
     </div>
     <div class="card-footer">

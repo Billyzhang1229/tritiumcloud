@@ -60,39 +60,22 @@
 
 <!-- main content-->
     <div class="container">
-        <div class="card">
-            <div class="card-body text-center">
-                <h1 class="card-title display-4">所 有 博 客</h1>
-            </div>
-        </div>
-  <div class="row row-cols-1 row-cols-md-2">
-      {% for userpost in userposts %}
-      <div class="col mb-4">
-  <div class="card post-card h-100">
-      <div class="img-container">
-          <img src="{{ userpost.picture.url }}" class="card-img-top">
-      </div>
-    <div class="card-body post-text">
-        <h5 class="card-title"><a href="{% url 'articles:postsdetailview' userpost.id %}">{{ userpost.title }}</a></h5>
-      <p class="card-text">{{ userpost.content }}</p>
-    </div>
-    <div class="card-footer">
+        <h1 class="display-4" style="background-color: green">{{ userpost.title }}</h1>
+        <hr>
         <div class="row">
-            <div class="col">
-                <small class="text-muted">By {{ userpost.user.username }}</small>
+            <div class="col" style="background-color: blue">
+                <p class="lead">{{userpost.user.username}}</p>
             </div>
-            <div class="col">
-                  <small class="text-muted">Posted at {{ userpost.uploadtime }}</small>
+            <div class="col" style="background-color: yellow">
+                <p class="lead">{{userpost.uploadtime}}</p>
             </div>
         </div>
-
+        <hr>
+        <img src="{{userpost.picture.url}}" class="img-fluid">
+        <hr>
+        <p style="background-color: #20c997">{{userpost.content}}</p>
     </div>
-  </div>
-      </div>
-      {% endfor %}
-  </div>
-    </div>
-    </div>
+        </div>
     </div>
 
 
