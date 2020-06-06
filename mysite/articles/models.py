@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from autoslug import AutoSlugField
 
 # Create your models here.
 class PostsModel(models.Model):
@@ -8,6 +9,7 @@ class PostsModel(models.Model):
     uploadtime = models.DateTimeField(auto_now_add=True)
     picture = models.ImageField(upload_to="uploads/%Y/%m/%d/")
     content = models.TextField()
+    slug = AutoSlugField(populate_from='user')
 
     def __str__(self):
         return self.title

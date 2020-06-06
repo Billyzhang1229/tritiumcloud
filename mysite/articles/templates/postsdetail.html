@@ -6,78 +6,87 @@
 {% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{% static '/userinfo/css/mysidebar.css' %}"/>
 {% endblock %}
 
 {% block mainbody %}
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/></h3>
-            </div>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/>
+            </h3>
+        </div>
 
-            <ul class="list-unstyled components">
-                <p>Welcome, {{current_user.first_name}} {{current_user.last_name}}</p>
-                <li>
-                    <a href="/">{{current_user.username}}</a>
-                <li>
-                    <a href="/discover/">发现</a>
-                </li>
-                <li class="active">
-                    <a href="{% url 'userinfo:userprofileview' current_user.username %}">我的主页</a>
-                </li>
-            </ul>
+        <ul class="list-unstyled components">
+            <p>Welcome, {{current_user.first_name}} {{current_user.last_name}}</p>
+            <li>
+                <a href="/">{{current_user.username}}</a>
+            <li>
+                <a href="/discover/">发现</a>
+            </li>
+            <li>
+                <a href="{% url 'userinfo:userprofileview' current_user.username %}">我的主页</a>
+            </li>
+        </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="{% url 'logout' %}" class="logout">Logout</a>
-                </li>
-            </ul>
-        </nav>
-        <!-- Page Content Holder -->
-        <div id="content">
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="{% url 'logout' %}" class="logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Page Content Holder -->
+    <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
 
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                        </ul>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                    </ul>
                 </div>
-            </nav>
-
-<!-- main content-->
-    <div class="container">
-        <h1 class="display-4" style="background-color: green">{{ userpost.title }}</h1>
-        <hr>
-        <div class="row">
-            <div class="col" style="background-color: blue">
-                <p class="lead">{{userpost.user.username}}</p>
             </div>
-            <div class="col" style="background-color: yellow">
-                <p class="lead">{{userpost.uploadtime}}</p>
-            </div>
-        </div>
-        <hr>
-        <img src="{{userpost.picture.url}}" class="img-fluid">
-        <hr>
-        <p style="background-color: #20c997">{{userpost.content}}</p>
-    </div>
-        </div>
-    </div>
+        </nav>
 
+        <!-- main content-->
+        <div class="container">
+
+
+            <h1 class="article-title">{{ userpost.title }}</h1>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p class="lead">{{userpost.user.username}}</p>
+                </div>
+                <div class="col">
+                    <p class="lead">{{userpost.uploadtime}}</p>
+                </div>
+            </div>
+            <hr>
+            <img src="{{userpost.picture.url}}" class="img-fluid">
+            <hr>
+            <p>{{userpost.content}}</p>
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
 
 
 {% endblock %}

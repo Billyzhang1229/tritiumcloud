@@ -13,40 +13,43 @@ HOME
 
 {% block mainbody %}
 <body>
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
-      <header class="masthead mb-auto">
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+    <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand">TRITIUM
-            <svg class="bi bi-cloud" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M4.887 7.2l-.964-.165A2.5 2.5 0 1 0 3.5 12h10a1.5 1.5 0 0 0 .237-2.981L12.7 8.854l.216-1.028a4 4 0 1 0-7.843-1.587l-.185.96zm9.084.341a5 5 0 0 0-9.88-1.492A3.5 3.5 0 1 0 3.5 13h9.999a2.5 2.5 0 0 0 .394-4.968c.033-.16.06-.324.077-.49z"/>
-            </svg></h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="/">{{ username }}</a>
-            <a class="nav-link" href="/discover/">发现</a>
-            <a class="nav-link" href="{% url 'userinfo:userprofileview' username %}">我的主页</a>
-            <a class="nav-link" href="{% url 'logout' %}">退出</a>
-          </nav>
+            <h3 class="masthead-brand">TRITIUM
+                <svg class="bi bi-cloud" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M4.887 7.2l-.964-.165A2.5 2.5 0 1 0 3.5 12h10a1.5 1.5 0 0 0 .237-2.981L12.7 8.854l.216-1.028a4 4 0 1 0-7.843-1.587l-.185.96zm9.084.341a5 5 0 0 0-9.88-1.492A3.5 3.5 0 1 0 3.5 13h9.999a2.5 2.5 0 0 0 .394-4.968c.033-.16.06-.324.077-.49z"/>
+                </svg>
+            </h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="/">{{ username }}</a>
+                <a class="nav-link" href="/discover/">发现</a>
+                <a class="nav-link" href="{% url 'userinfo:userprofileview' username %}">我的主页</a>
+                <a class="nav-link" href="{% url 'logout' %}">退出</a>
+            </nav>
         </div>
-      </header>
+    </header>
 
-      <main role="main" class="inner cover">
+    <main role="main" class="inner cover">
         <h1 class="cover-heading">{{ welcome_word }}, {{ user_first_name }} {{ user_last_name }}</h1>
         <p class="lead">{{ timenow }}</p>
         <hr>
-          <div class="covertext">
+        <div class="covertext">
             <p class="lead">CARRYING WEAPONS OFF FUTY FORBIDDEN</p>
             <p class="lead">OBEY TRAFFIC RULES</p>
-          </div>
-        <p class="lead">
-          <a href="/discover/" class="btn btn-lg btn-outline-light">查看博客</a>
-        </p>
-      </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>2020 BZ</p>
         </div>
-      </footer>
-    </div>
+        <p class="lead">
+            <a href="/discover/" class="btn btn-lg btn-outline-light">查看博客</a>
+        </p>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>2020 BZ</p>
+        </div>
+    </footer>
+</div>
 </body>
 {% endblock %}

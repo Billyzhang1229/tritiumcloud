@@ -10,86 +10,86 @@
 {% endblock %}
 
 {% block mainbody %}
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/></h3>
-            </div>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3><a href="/">TRITIUM</a> <img src="{% static '/mysite/css/white_cloud.png' %}" height="30" width="30"/>
+            </h3>
+        </div>
 
-            <ul class="list-unstyled components">
-                <p>Welcome, {{current_user.first_name}} {{current_user.last_name}}</p>
-                <li>
-                    <a href="/">{{current_user.username}}</a>
-                <li>
-                    <a href="/discover/">发现</a>
-                </li>
-                <li class="active">
-                    <a href="{% url 'userinfo:userprofileview' current_user.username %}">我的主页</a>
-                </li>
-            </ul>
+        <ul class="list-unstyled components">
+            <p>Welcome, {{current_user.first_name}} {{current_user.last_name}}</p>
+            <li>
+                <a href="/">{{current_user.username}}</a>
+            <li>
+                <a href="/discover/">发现</a>
+            </li>
+            <li class="active">
+                <a href="{% url 'userinfo:userprofileview' current_user.username %}">我的主页</a>
+            </li>
+        </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="{% url 'logout' %}" class="logout">Logout</a>
-                </li>
-            </ul>
-        </nav>
-        <!-- Page Content Holder -->
-        <div id="content">
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="{% url 'logout' %}" class="logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Page Content Holder -->
+    <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                        </ul>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
 <!--            main content-->
     <div class="container">
-      <div class="card user-info">
-      <div class="card-body">
-        <h1 class="card-title display-4">{{userprofile.user.first_name}} {{userprofile.user.last_name}} 的主页</h1>
-        <p class="card-text lead">{{userprofile.bio}}</p>
-      </div>
-      </div>
-  <div class="row row-cols-1 row-cols-md-2">
+        <div class="card user-info">
+            <div class="card-body">
+                <h1 class="card-title display-4">{{userprofile.user.first_name}} {{userprofile.user.last_name}} 的主页</h1>
+                <p class="card-text lead">{{userprofile.bio}}</p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
       {% for userpost in userposts %}
-      <div class="col mb-4">
-  <div class="card post-card h-100">
-      <div class="img-container">
-          <img src="{{ userpost.picture.url }}" class="card-img-top">
-      </div>
-    <div class="card-body post-text">
-      <h5 class="card-title"><a href="{% url 'articles:postsdetailview' userpost.id %}">{{ userpost.title }}</a></h5>
-      <p class="card-text">{{ userpost.content }}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Posted at {{ userpost.uploadtime }}</small>
-    </div>
-  </div>
-      </div>
+            <div class="col mb-4" id="postcard">
+                <div class="card post-card h-100">
+                    <div class="img-container">
+                        <img src="{{ userpost.picture.url }}" class="card-img-top">
+                    </div>
+                    <div class="card-body post-text">
+                        <h5 class="card-title"><a href="{% url 'articles:postsdetailview' userpost.id %}">{{userpost.title }}</a></h5>
+                        <p class="card-text">{{ userpost.content }}</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <small class="text-muted">Posted at {{ userpost.uploadtime }}</small>
+                    </div>
+                </div>
+            </div>
       {% endfor %}
-  </div>
-
-
-
-
+        </div>
     </div>
     </div>
-    </div>
+</div>
 
 
 
