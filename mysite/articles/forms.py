@@ -4,7 +4,7 @@ from . import models
 class PostForm(forms.ModelForm):
     class Meta:
         model= models.PostsModel
-        fields = ['title', 'picture', 'content',]
+        fields = ['title', 'picture', 'content', 'tags']
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -13,5 +13,5 @@ class CommentForm(forms.ModelForm):
 
 class CreateTagForm(forms.ModelForm):
     class Meta:
-        models = models.TagModel
+        model = models.TagModel
         fields = ['tagname', 'tagimage']

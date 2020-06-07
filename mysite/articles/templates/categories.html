@@ -71,14 +71,11 @@
             </div>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 {% for tag in tags %}
+                {{ tag.non_field_errors }}
                 <div class="col mb-4">
                     <div class="card post-card h-100">
-                        <div class="img-container">
-                            <img src="{{ tag.tagimage.url }}" class="card-img-top">
-                        </div>
                         <div class="card-body post-text">
-                            <h3 class="card-title"><a href="{% url 'articles:tagdetailview' tag.tagname %}">
-                                {{tag.tagname }}</a></h3>
+                            <h2 class="card-title"><a href="{% url 'articles:tagdetailview' tag.tagname %}">{{tag.tagname}}</a></h2>
                         </div>
                     </div>
                 </div>
