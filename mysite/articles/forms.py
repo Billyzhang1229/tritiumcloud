@@ -10,3 +10,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = models.CommentModel
         fields = ['content']
+
+class CreateTagForm(forms.ModelForm):
+    class Meta:
+        models = models.TagModel
+        fields = ['tagname', 'tagimage']

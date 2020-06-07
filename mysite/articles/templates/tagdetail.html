@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-{{userpost.title}}
+发现
 {% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{% static '/articles/css/articledetail.css' %}"/>
+<link rel="stylesheet" href="{% static '/userinfo/css/mysidebar.css' %}"/>
 {% endblock %}
 
 {% block mainbody %}
@@ -24,7 +24,7 @@
             <li>
                 <a href="/discover/">发现</a>
             </li>
-            <li>
+            <li class="active">
                 <a href="/category/">分类</a>
             </li>
             <li>
@@ -64,44 +64,39 @@
 
         <!-- main content-->
         <div class="container">
-            <div class="card user-info">
-                <div class="img-container">
-                <img src="{{ userpost.picture.url }}" class="card-img-top">
-            </div>
+            <div class="card text-center" id="title-card">
                 <div class="card-body">
-                    <h1 class="card-title display-5">{{userpost.title}}</h1>
-                    <p class="card-text lead">{{userpost.uploadtime}}</p>
-                    <hr>
-                    <p class="card-text">{{userpost.content}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">By <a class="userlink" href="{% url 'userinfo:userprofileview' userpost.slug %}">{{userpost.user.username}}</a></small>
+                    <h1 class="card-title display-4">{{tag.tagname}}</h1>
                 </div>
             </div>
-            <div class="card comment-form">
-            <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-                <div class="form-group">
-                    <label class="lead" for="{{comment_form.content.id_for_label}}">评论</label>
-                    <input class="form-control" type="text" name="{{comment_form.content.html_name}}"
-                           id="{{comment_form.content.id_for_label}}" required>
-                    <hr>
-                    <button class="btn btn-outline-dark btn-block btn-lg" type="submit" value="OK">发送</button>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                {% for userpost in userposts %}
+                <div class="col mb-4">
+                    <div class="card post-card h-100">
+                        <div class="img-container">
+                            <img src="{{ userpost.picture.url }}" class="card-img-top">
+                        </div>
+                        <div class="card-body post-text">
+                            <h3 class="card-title"><a href="{% url 'articles:postsdetailview' userpost.id %}">
+                                {{userpost.title }}</a></h3>
+                            <p class="card-text">{{ userpost.content }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-4">
+                                    <small class="text-muted">By <a id="userlink" href="{% url 'userinfo:userprofileview' userpost.slug %}">{{userpost.user.username}}</a></small>
+                                </div>
+                                <div class="col-8">
+                                    <small class="text-muted">Posted at {{ userpost.uploadtime }}</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </form>
-                </div>
-            {% for comment in comments %}
-            <div class="card">
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p>{{comment.content}}</p>
-                        <footer class="blockquote-footer"><a class="userlink" href="{% url 'userinfo:userprofileview' comment.user.username %}">{{comment.user.username}}</a><cite title="Source Title"> {{comment.commenttime}}</cite></footer>
-                    </blockquote>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-
-
     </div>
 </div>
 

@@ -32,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e8e8e8;
+    background-color: #efefef;
     min-width: 290px;
 }
 
@@ -40,7 +40,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: inherit;
-    width: available;
+    width: auto;
 }
 
 .createpost{
@@ -49,6 +49,32 @@
 
 .createpost svg:hover{
     fill: #ff9696;
+}
+
+.btn-outline-dark:hover{
+    background-color: #ff9696;
+    border-color: #ff9696;
+    color: #fff;
+}
+
+.lead{
+    margin-top: 10px;
+}
+
+.userlink{
+    color: #ff8888;
+    font-size: larger;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.comment-form{
+    padding: 10px;
+    color: #ff9696;
+}
+
+.blockquote p{
+    color: #ff9696;
 }
 
 @media only screen and (max-width:500px ) {
