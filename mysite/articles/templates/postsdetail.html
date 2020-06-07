@@ -65,12 +65,13 @@
                 <div class="img-container">
                 <img src="{{ userpost.picture.url }}" class="card-img-top">
             </div>
-                <div class="card-header">
+                <div class="card-body">
                     <h1 class="card-title display-5">{{userpost.title}}</h1>
                     <p class="card-text lead">{{userpost.uploadtime}}</p>
-                </div>
-                <div class="card-body">
+                    <hr>
                     <p class="card-text">{{userpost.content}}</p>
+                </div>
+                <div class="card-footer">
                     <small class="text-muted">By {{userpost.user.username}}</small>
                 </div>
             </div>

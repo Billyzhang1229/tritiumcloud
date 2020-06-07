@@ -6,8 +6,8 @@
     margin-bottom: 20px;
     margin-right: 10px;
     border-radius: 10px;
-    box-shadow: 15px 15px 15px #d9d9d9,
-    -5px -5px 15px #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
     border-color: rgba(192, 193, 195, 0);
     border-width: 0;
     background-color: #fbfcfe;
@@ -33,13 +33,14 @@
     justify-content: center;
     align-items: center;
     background-color: #e8e8e8;
+    min-width: 290px;
 }
 
 .card-img-top {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: inherit;
-    width: auto;
+    width: available;
 }
 
 .createpost{

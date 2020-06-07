@@ -25,6 +25,7 @@ class CommentModel(models.Model):
     content = models.CharField(max_length=255)
     commenttime = models.DateTimeField(auto_now_add=True)
     posts = models.ForeignKey(PostsModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='4')
 
     def __str__(self):
         return self.content

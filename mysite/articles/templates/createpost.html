@@ -50,29 +50,36 @@
 
         <!-- main content-->
         <div class="container">
+            <div class="form-contatiner">
             <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
                 <div class="form-group">
-                    <label class="lead" for="{{post_form.title.id_for_label}}">标题</label>
+                    <label class="lead" for="{{post_form.title.id_for_label}}">标题 TITLE:</label>
                     <input class="form-control" type="text" name="{{post_form.title.html_name}}"
                            id="{{post_form.title.id_for_label}}" required autofocus>
-                    <label class="lead">图片</label>
+                    <label class="lead">图片 IMAGE:</label>
                     <div class="custom-file mb-3">
                         <input type="file" class="custom-file-input" id="{{post_form.picture.id_for_label}}"
                                name="{{post_form.picture.html_name}}" required>
                         <label class="custom-file-label" for="{{post_form.picture.id_for_label}}">Choose file</label>
                     </div>
-                    <label class="lead" for="{{post_form.content.id_for_label}}">内容</label>
+                    <label class="lead" for="{{post_form.content.id_for_label}}">内容 CONTENT:</label>
                     <textarea class="form-control" type="text" id="{{post_form.content.id_for_label}}"
                               name="{{post_form.content.html_name}}" rows="10" required></textarea>
                     <hr>
                     <button class="btn btn-outline-dark btn-block btn-lg" type="submit" value="OK">发送</button>
                 </div>
             </form>
+            </div>
         </div>
 
 
     </div>
 </div>
 
-
+<script>
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
 {% endblock %}
