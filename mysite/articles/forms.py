@@ -14,4 +14,4 @@ class CommentForm(forms.ModelForm):
 class CreateTagForm(forms.ModelForm):
     class Meta:
         model = models.TagModel
-        fields = ['tagname', 'tagimage']
+        fields = ['tagname',]

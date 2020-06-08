@@ -69,9 +69,9 @@
                     <textarea class="form-control" type="text" id="{{post_form.content.id_for_label}}"
                               name="{{post_form.content.html_name}}" rows="10" required></textarea>
                     <label class="lead" for="{{post_form.tags.id_for_label}}">Tags</label>
-                    <select class="form-control" id="{{post_form.tags.id_for_label}}" name="{{post_form.tags.html_name}}">
-                        {% for tag in tags%}
-                        <option>{{ tag.tagname }}</option>
+                    <select class="form-control" id="{{post_form.tags.id_for_label}}" name="{{post_form.tags.html_name}}" required>
+                        {% for tag in post_form.tags %}
+                        <option>{{ tag }}</option>
                         {% endfor %}
                     </select>
                     <hr>
