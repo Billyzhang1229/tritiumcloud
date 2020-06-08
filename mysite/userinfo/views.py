@@ -30,3 +30,5 @@ class UserProfileView(generic.TemplateView):
         current_user = request.user
         context = {'userprofile': userprofile, 'userposts':userposts, 'current_user':current_user}
         return render(request, self.template_name, context)
+
+

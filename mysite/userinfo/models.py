@@ -10,7 +10,7 @@ def custom_slugify(value):
 class UserInfoModel(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     bio = models.CharField(max_length=255)
-    avatar = models.ImageField(upload_to="uploads/image/%Y/%m/%d", null=True)
+    avatar = models.ImageField(upload_to="uploads/image/%Y/%m/%d")
     slug = AutoSlugField(populate_from='user', slugify=custom_slugify)
 
     def __str__(self):

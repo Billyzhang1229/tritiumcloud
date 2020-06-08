@@ -48,6 +48,7 @@ def create_post_view(request):
     template_name = 'createpost.html'
     post_form = forms.PostForm()
     success_url = "/discover/"
+    tags = models.TagModel.objects.all()
     if request.method == "POST":
         post_form = forms.PostForm(request.POST, request.FILES)
         if post_form.is_valid():
@@ -59,6 +60,7 @@ def create_post_view(request):
             post_form = forms.PostForm()
             print(post_form.errors)
     context = {
+        'tags': tags,
         'post_form': post_form,
         'current_user': request.user,
     }
@@ -96,7 +98,7 @@ class CreateTagView(generic.TemplateView):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        tag_form = self.tag_form(request.POST)
+        tag_form = self.tag_form(request.POST, request.FILES)
         context = {'post_form': tag_form, 'current_user': request.user}
         if tag_form.is_valid():
             tag_form.save()

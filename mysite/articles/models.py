@@ -5,6 +5,7 @@ from autoslug import AutoSlugField
 # Create your models here.
 class TagModel(models.Model):
     tagname = models.CharField(max_length=50, unique=True)
+    tagimage = models.ImageField(upload_to="uploads/%Y/%m/%d/",default='/uploads/404.jpg')
 
     def __str__(self):
         return self.tagname
@@ -16,7 +17,7 @@ class PostsModel(models.Model):
     picture = models.ImageField(upload_to="uploads/%Y/%m/%d/%H/%M")
     content = models.TextField()
     slug = AutoSlugField(populate_from='user')
-    tags = models.ForeignKey(TagModel, on_delete=models.PROTECT)
+    tags = models.ForeignKey(TagModel, on_delete=models.PROTECT,default=1)
 
     def __str__(self):
         return self.title
@@ -25,7 +26,7 @@ class CommentModel(models.Model):
     content = models.CharField(max_length=255)
     commenttime = models.DateTimeField(auto_now_add=True)
     posts = models.ForeignKey(PostsModel, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='4')
 
     def __str__(self):
         return self.content
