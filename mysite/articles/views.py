@@ -60,7 +60,6 @@ def create_post_view(request):
             post_form = forms.PostForm()
             print(post_form.errors)
     context = {
-        'tags': tags,
         'post_form': post_form,
         'current_user': request.user,
     }

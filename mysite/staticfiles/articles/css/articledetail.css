@@ -1,0 +1,84 @@
+#main {
+    color: white;
+}
+
+.card {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
+    border-color: rgba(192, 193, 195, 0);
+    border-width: 0;
+    background-color: #fbfcfe;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #ff6f61;
+}
+
+.menuicon {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.img-container {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+    min-width: 290px;
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: inherit;
+    width: auto;
+}
+
+.createpost{
+    background-color: #f8f9fa;
+}
+
+.createpost svg:hover{
+    fill: #ff9696;
+}
+
+.btn-outline-dark:hover{
+    background-color: #ff9696;
+    border-color: #ff9696;
+    color: #fff;
+}
+
+.lead{
+    margin-top: 10px;
+}
+
+.userlink{
+    color: #ff8888;
+    font-size: larger;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.comment-form{
+    padding: 10px;
+    color: #ff9696;
+}
+
+.blockquote p{
+    color: #ff9696;
+}
+
+@media only screen and (max-width:500px ) {
+    .img-container{
+        height: 200px;
+    }
+}

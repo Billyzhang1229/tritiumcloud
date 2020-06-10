@@ -1,0 +1,31 @@
+body{
+    background-color: #ffffff;
+}
+
+.btn-outline-dark:hover{
+    background-color: #ff9696;
+    border-color: #ff9696;
+    color: #fff;
+}
+
+.custom-file-input{
+    cursor: pointer;
+}
+
+.form-contatiner{
+    background-color: #ffffff;
+    min-width: 290px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
+}
+
+.lead{
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 0;
+    color: #ff9696;
+}
+
