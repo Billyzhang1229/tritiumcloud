@@ -23,6 +23,9 @@ class PostsDetailView(generic.TemplateView):
         userpost = get_object_or_404(models.PostsModel, pk=kwargs['pk'])
         comment_form = self.comment_form(initial=self.initial)
         current_user = request.user
+        article_views = models.ArticleViewsModel.objects.get(posts=userpost)
+        article_views.clicks += 1
+        article_views.save()
         comments = models.CommentModel.objects.filter(posts=userpost)
         context = {'userpost': userpost, 'current_user': current_user, 'comment_form': comment_form,
                    'comments': comments}
@@ -48,13 +51,14 @@ def create_post_view(request):
     template_name = 'createpost.html'
     post_form = forms.PostForm()
     success_url = "/discover/"
-    tags = models.TagModel.objects.all()
     if request.method == "POST":
         post_form = forms.PostForm(request.POST, request.FILES)
         if post_form.is_valid():
             instance = post_form.save(commit=False)
             instance.user = request.user
             instance.save()
+            clicks = models.ArticleViewsModel.objects.create(posts=instance)
+            clicks.save()
             return HttpResponseRedirect(success_url)
         else:
             post_form = forms.PostForm()

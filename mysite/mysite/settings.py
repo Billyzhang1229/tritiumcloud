@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'i&*@em=bzcrx$-0cg=bj22_(tr%$@=gq0zq2e4=z)$-n(hiqu!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # myapp
     'articles',
     'userinfo',
+    'uniranking',
 ]
 
 MIDDLEWARE = [

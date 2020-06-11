@@ -29,3 +29,10 @@ class CommentModel(models.Model):
 
     def __str__(self):
         return self.content
+
+class ArticleViewsModel(models.Model):
+    posts = models.ForeignKey(PostsModel, on_delete=models.CASCADE)
+    clicks = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.posts.title
